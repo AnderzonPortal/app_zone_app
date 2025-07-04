@@ -50,10 +50,10 @@ Visualiza tus juegos registrados en una lista dinámica con datos en tiempo real
 
 | Funcionalidad              | Imagen                                                                 |
 |---------------------------|------------------------------------------------------------------------|
-| ✏️ Editar juegos           | <img src="app/src/imagenes/editar-juego1.jpg" width="32%"> &nbsp; <img src="app/src/imagenes/editar-juego2.jpg" width="32%"> &nbsp; <img src="app/src/imagenes/editar-juego3.jpg" width="32%"> |
-| 🗑️ Eliminar juegos         | <img src="app/src/imagenes/eliminar-juego1.jpg" width="32%"> &nbsp;&nbsp; <img src="app/src/imagenes/eliminar-juego2.jpg" width="32%"> |
-| 🎯 Filtro por género       | <img src="app/src/imagenes/filtro-genero1.jpg" width="32%"> &nbsp;&nbsp; <img src="app/src/imagenes/filtro-genero2.jpg" width="32%"> |
-| 🔍 Búsqueda por título     | <img src="app/src/imagenes/busqueda-titulo.jpg" width="32%"> |
+| ✏️ Editar juegos           | <img src="app/src/imagenes/editar-juego1.jpg" width="35%"> &nbsp; <img src="app/src/imagenes/editar-juego2.jpg" width="35%"> &nbsp; <img src="app/src/imagenes/editar-juego3.jpg" width="35%"> |
+| 🗑️ Eliminar juegos         | <img src="app/src/imagenes/eliminar-juego1.jpg" width="35%"> &nbsp;&nbsp; <img src="app/src/imagenes/eliminar-juego2.jpg" width="35%"> |
+| 🎯 Filtro por género       | <img src="app/src/imagenes/filtro-genero1.jpg" width="35%"> &nbsp;&nbsp; <img src="app/src/imagenes/filtro-genero2.jpg" width="35%"> |
+| 🔍 Búsqueda por título     | <img src="app/src/imagenes/busqueda-titulo.jpg" width="35%"> |
 
 ---
 
