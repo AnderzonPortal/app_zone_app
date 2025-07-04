@@ -2,7 +2,7 @@
 <h3 align="center">Gestor de videojuegos con Firebase Authentication y Realtime Database</h3>
 
 <p align="center">
-  <img src="app/src/imagenes/galeria1.jpg" alt="Vista previa" width="50%">
+  <img src="app/src/imagenes/galeria1.jpg" alt="Vista previa" width="40%">
 </p>
 
 ---
@@ -12,7 +12,7 @@
 Configura Firebase paso a paso para comenzar a trabajar con GameVault:
 
 1. **Habilitar Realtime Database en Firebase Console**  
-   ![Realtime Database](app/src/imagenes/firebase-enable-db.jpg)
+   ![Realtime Database](app/src/imagenes/firebase-enable-db.jpg) 
 
 2. **Configurar reglas de seguridad**  
    ![Reglas de seguridad](app/src/imagenes/firebase-rules.jpg)
@@ -33,7 +33,7 @@ Todo comienza con un formulario intuitivo para agregar juegos a tu biblioteca pe
   ![AddGameActivity](app/src/imagenes/add-game-activity.jpg)
 
 - ✅ **Crear formulario con validaciones**  
-  ![Formulario con validaciones](app/src/imagenes/formulario-validado.jpg)
+  <img src="app/src/imagenes/formulario-validado.jpg" width="40%">
 
 ---
 
@@ -46,14 +46,14 @@ Visualiza tus juegos registrados en una lista dinámica con datos en tiempo real
 
 
 - 🙋‍♂️ **Mostrar datos del usuario autenticado**  
-  ![Datos del usuario](app/src/imagenes/datos-usuario.jpg)
+  <img src="app/src/imagenes/datos-usuario.jpg" width="40%">
 
 | Funcionalidad              | Imagen                                                                 |
 |---------------------------|------------------------------------------------------------------------|
-| ✏️ Editar juegos           | ![](app/src/imagenes/editar-juego1.jpg)<br>![](app/src/imagenes/editar-juego2.jpg)<br>![](app/src/imagenes/editar-juego3.jpg) |
-| 🗑️ Eliminar juegos         | ![](app/src/imagenes/eliminar-juego1.jpg)<br>![](app/src/imagenes/eliminar-juego2.jpg) |
-| 🎯 Filtro por género       | ![](app/src/imagenes/filtro-genero1.jpg)<br>![](app/src/imagenes/filtro-genero2.jpg) |
-| 🔍 Búsqueda por título     | ![](app/src/imagenes/busqueda-titulo.jpg)                                    |
+| ✏️ Editar juegos           | <img src="app/src/imagenes/editar-juego1.jpg" width="32%"> &nbsp; <img src="app/src/imagenes/editar-juego2.jpg" width="32%"> &nbsp;&nbsp; <img src="app/src/imagenes/editar-juego3.jpg" width="32%"> |
+| 🗑️ Eliminar juegos         | <img src="app/src/imagenes/eliminar-juego1.jpg" width="32%"> &nbsp;&nbsp; <img src="app/src/imagenes/eliminar-juego2.jpg" width="32%"> |
+| 🎯 Filtro por género       | <img src="app/src/imagenes/filtro-genero1.jpg" width="32%"> &nbsp;&nbsp; <img src="app/src/imagenes/filtro-genero2.jpg" width="32%"> |
+| 🔍 Búsqueda por título     | <img src="app/src/imagenes/busqueda-titulo.jpg" width="32%"> |
 
 ---
 
