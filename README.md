@@ -27,13 +27,13 @@ Configura Firebase paso a paso para comenzar a trabajar con GameVault:
 Todo comienza con un formulario intuitivo para agregar juegos a tu biblioteca personal.
 
 - 🧩 **Crear modelo `Game.kt`**  
-  ![Game Model](./imagenes/modelo-game.jpg)
+  ![Game Model](app/src/imagenes/modelo-game.jpg)
 
 - 🛠️ **Implementar `AddGameActivity.kt`**  
-  ![AddGameActivity](./imagenes/add-game-activity.jpg)
+  ![AddGameActivity](app/src/imagenes/add-game-activity.jpg)
 
 - ✅ **Crear formulario con validaciones**  
-  ![Formulario con validaciones](./imagenes/formulario-validado.jpg)
+  ![Formulario con validaciones](app/src/imagenes/formulario-validado.jpg)
 
 ---
 
@@ -42,18 +42,18 @@ Todo comienza con un formulario intuitivo para agregar juegos a tu biblioteca pe
 Visualiza tus juegos registrados en una lista dinámica con datos en tiempo real.
 
 - 🧱 **RecyclerView con `GameAdapter`**  
-  ![RecyclerView](./imagenes/game-adapter.jpg)
+  ![RecyclerView](app/src/imagenes/game-adapter.jpg)
 
 
 - 🙋‍♂️ **Mostrar datos del usuario autenticado**  
-  ![Datos del usuario](./imagenes/datos-usuario.jpg)
+  ![Datos del usuario](app/src/imagenes/datos-usuario.jpg)
 
 | Funcionalidad              | Imagen                                                                 |
 |---------------------------|------------------------------------------------------------------------|
-| ✏️ Editar juegos           | ![](./imagenes/editar-juego1.jpg)<br>![](./imagenes/editar-juego2.jpg)<br>![](./imagenes/editar-juego3.jpg) |
-| 🗑️ Eliminar juegos         | ![](./imagenes/eliminar-juego1.jpg)<br>![](./imagenes/eliminar-juego2.jpg) |
-| 🎯 Filtro por género       | ![](./imagenes/filtro-genero1.jpg)<br>![](./imagenes/filtro-genero2.jpg) |
-| 🔍 Búsqueda por título     | ![](./imagenes/busqueda-titulo.jpg)                                    |
+| ✏️ Editar juegos           | ![](app/src/imagenes/editar-juego1.jpg)<br>![](app/src/imagenes/editar-juego2.jpg)<br>![](app/src/imagenes/editar-juego3.jpg) |
+| 🗑️ Eliminar juegos         | ![](app/src/imagenes/eliminar-juego1.jpg)<br>![](app/src/imagenes/eliminar-juego2.jpg) |
+| 🎯 Filtro por género       | ![](app/src/imagenes/filtro-genero1.jpg)<br>![](app/src/imagenes/filtro-genero2.jpg) |
+| 🔍 Búsqueda por título     | ![](app/src/imagenes/busqueda-titulo.jpg)                                    |
 
 ---
 
