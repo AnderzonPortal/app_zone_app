@@ -2,19 +2,24 @@ package com.example.app_s10
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.RatingBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-// app/src/main/java/com/example/app_s10/AddGameActivity.kt
 class AddGameActivity : AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
     private lateinit var auth: FirebaseAuth
+    private lateinit var etTitle: EditText
+    private lateinit var etGenre: EditText
+    private lateinit var ratingBar: RatingBar
+    private lateinit var btnSave: Button
+
+    private var gameToEdit: Game? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,24 +29,43 @@ class AddGameActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().reference
 
-        setupViews()
-    }
+        // Inicializar las vistas
+        etTitle = findViewById(R.id.etGameTitle)
+        etGenre = findViewById(R.id.etGameGenre)
+        ratingBar = findViewById(R.id.ratingBar)
+        btnSave = findViewById(R.id.btnSaveGame)
 
-    private fun setupViews() {
-        val etTitle = findViewById<TextInputEditText>(R.id.etGameTitle)
-        val etGenre = findViewById<TextInputEditText>(R.id.etGameGenre)
-        val ratingBar = findViewById<RatingBar>(R.id.ratingBar)
-        val btnSave = findViewById<Button>(R.id.btnSaveGame)
+        // Obtener el juego a editar, si lo hay
+        gameToEdit = intent.getParcelableExtra("gameToEdit")
 
+        // Si hay un juego a editar, llenar los campos
+        if (gameToEdit != null) {
+            fillFieldsWithGameData(gameToEdit!!)
+        }
+
+        // Configurar el botón guardar
         btnSave.setOnClickListener {
             val title = etTitle.text.toString().trim()
             val genre = etGenre.text.toString().trim()
             val rating = ratingBar.rating
 
             if (validateInput(title, genre)) {
-                saveGame(title, genre, rating)
+                if (gameToEdit != null) {
+                    // Si es un juego existente, actualizarlo
+                    updateGame(gameToEdit!!, title, genre, rating)
+                } else {
+                    // Si es un nuevo juego, crear uno
+                    saveGame(title, genre, rating)
+                }
             }
         }
+    }
+
+    private fun fillFieldsWithGameData(game: Game) {
+        // Llenar los campos con los datos del juego
+        etTitle.setText(game.title)
+        etGenre.setText(game.genre)
+        ratingBar.rating = game.rating
     }
 
     private fun validateInput(title: String, genre: String): Boolean {
@@ -75,6 +99,19 @@ class AddGameActivity : AppCompatActivity() {
             }
             .addOnFailureListener { exception ->
                 showError("Error al guardar: ${exception.message}")
+            }
+    }
+
+    private fun updateGame(game: Game, title: String, genre: String, rating: Float) {
+        val updatedGame = game.copy(title = title, genre = genre, rating = rating)
+
+        database.child("games").child(game.userId).child(game.id).setValue(updatedGame)
+            .addOnSuccessListener {
+                showSuccess("¡Juego actualizado exitosamente!")
+                finish()
+            }
+            .addOnFailureListener { exception ->
+                showError("Error al actualizar: ${exception.message}")
             }
     }
 

@@ -1,6 +1,9 @@
 package com.example.app_s10
-// app/src/main/java/com/example/app_s10/Game.kt
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Game(
     val id: String = "",
     val title: String = "",
@@ -12,4 +15,4 @@ data class Game(
     val completed: Boolean = false,
     val userId: String = "",
     val createdAt: Long = System.currentTimeMillis()
-)
+) : Parcelable // Implementa Parcelable usando la anotación @Parcelize

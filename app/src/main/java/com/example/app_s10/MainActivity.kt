@@ -126,6 +126,20 @@ class MainActivity : AppCompatActivity() {
         cardSettings.setOnClickListener {
             showFeatureComingSoon("Configuración")
         }
+
+        // Botón para agregar juego
+        val btnAddGame = findViewById<CardView>(R.id.btnAddGame)
+        btnAddGame.setOnClickListener {
+            // Redirige a AddGameActivity
+            startActivity(Intent(this, AddGameActivity::class.java))
+        }
+
+        // Botón para ver lista de juegos
+        val btnViewGames = findViewById<CardView>(R.id.btnViewGames)
+        btnViewGames.setOnClickListener {
+            // Redirige a GamesListActivity
+            startActivity(Intent(this, GamesListActivity::class.java))
+        }
     }
 
     private fun showLogoutConfirmationDialog() {
@@ -187,23 +201,6 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
-    // Agregar en MainActivity.kt
-    private fun setupGameFeatures() {
-        // Botón para agregar juego
-        val btnAddGame = findViewById<Button>(R.id.btnAddGame)
-        btnAddGame.setOnClickListener {
-            startActivity(Intent(this, AddGameActivity::class.java))
-        }
-
-        // Botón para ver juegos
-        val btnViewGames = findViewById<Button>(R.id.btnViewGames)
-        btnViewGames.setOnClickListener {
-            startActivity(Intent(this, GamesListActivity::class.java))
-        }
-    }
-
-
-
     override fun onStart() {
         super.onStart()
         // Verificar autenticación cada vez que la actividad se vuelve visible
@@ -215,4 +212,4 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-annotation class GamesListActivity
+
