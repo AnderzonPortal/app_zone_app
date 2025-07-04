@@ -52,4 +52,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Otras dependencias...
+    implementation("com.google.firebase:firebase-database:20.3.0")
 }
