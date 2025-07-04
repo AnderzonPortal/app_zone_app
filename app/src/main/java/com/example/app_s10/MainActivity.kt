@@ -3,6 +3,7 @@ package com.example.app_s10
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -16,9 +17,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 class MainActivity : AppCompatActivity() {
-    
+
     private lateinit var auth: FirebaseAuth
-    
+
     // Views
     private lateinit var tvWelcome: TextView
     private lateinit var tvUserEmail: TextView
@@ -27,19 +28,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cardAchievements: CardView
     private lateinit var cardProfile: CardView
     private lateinit var cardSettings: CardView
-    
+
     companion object {
         private const val TAG = "MainActivity"
     }
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        
+
         // Inicializar Firebase Auth
         auth = FirebaseAuth.getInstance()
-        
+
         // Verificar autenticación
         val currentUser = auth.currentUser
         if (currentUser == null) {
@@ -47,20 +48,20 @@ class MainActivity : AppCompatActivity() {
             redirectToLogin()
             return
         }
-        
+
         // Configurar UI
         setupUI()
         setupWindowInsets()
-        
+
         // Cargar información del usuario
         loadUserInfo(currentUser)
-        
+
         // Configurar listeners
         setupClickListeners()
-        
+
         Log.d(TAG, "MainActivity iniciado para usuario: ${currentUser.email}")
     }
-    
+
     private fun setupUI() {
         // Inicializar views
         tvWelcome = findViewById(R.id.tv_welcome)
@@ -71,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         cardProfile = findViewById(R.id.card_profile)
         cardSettings = findViewById(R.id.card_settings)
     }
-    
+
     private fun setupWindowInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -79,7 +80,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
-    
+
     private fun loadUserInfo(user: FirebaseUser) {
         // Personalizar saludo según el tipo de usuario
         val welcomeMessage = if (user.isAnonymous) {
@@ -87,46 +88,46 @@ class MainActivity : AppCompatActivity() {
         } else {
             "¡Hola, ${user.displayName ?: "Gamer"}!"
         }
-        
+
         tvWelcome.text = welcomeMessage
-        
+
         // Mostrar email o indicar usuario anónimo
         tvUserEmail.text = if (user.isAnonymous) {
             "Usuario invitado"
         } else {
             user.email ?: "Sin email"
         }
-        
+
         // Verificar estado de verificación de email
         if (!user.isAnonymous && user.email != null && !user.isEmailVerified) {
             showEmailVerificationDialog()
         }
     }
-    
+
     private fun setupClickListeners() {
         // Botón logout
         btnLogout.setOnClickListener {
             showLogoutConfirmationDialog()
         }
-        
+
         // Cards de navegación (placeholder por ahora)
         cardStats.setOnClickListener {
             showFeatureComingSoon("Estadísticas del Jugador")
         }
-        
+
         cardAchievements.setOnClickListener {
             showFeatureComingSoon("Logros")
         }
-        
+
         cardProfile.setOnClickListener {
             showFeatureComingSoon("Perfil")
         }
-        
+
         cardSettings.setOnClickListener {
             showFeatureComingSoon("Configuración")
         }
     }
-    
+
     private fun showLogoutConfirmationDialog() {
         AlertDialog.Builder(this)
             .setTitle("Cerrar Sesión")
@@ -138,21 +139,21 @@ class MainActivity : AppCompatActivity() {
             .setIcon(android.R.drawable.ic_dialog_alert)
             .show()
     }
-    
+
     private fun performLogout() {
         auth.signOut()
         Toast.makeText(this, getString(R.string.logout_success), Toast.LENGTH_SHORT).show()
         Log.d(TAG, "Usuario desconectado")
         redirectToLogin()
     }
-    
+
     private fun redirectToLogin() {
         val intent = Intent(this, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         finish()
     }
-    
+
     private fun showEmailVerificationDialog() {
         AlertDialog.Builder(this)
             .setTitle("Verificar Email")
@@ -164,7 +165,7 @@ class MainActivity : AppCompatActivity() {
             .setIcon(android.R.drawable.ic_dialog_info)
             .show()
     }
-    
+
     private fun sendEmailVerification() {
         val user = auth.currentUser
         user?.sendEmailVerification()
@@ -176,7 +177,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
     }
-    
+
     private fun showFeatureComingSoon(featureName: String) {
         AlertDialog.Builder(this)
             .setTitle("Próximamente")
@@ -185,7 +186,24 @@ class MainActivity : AppCompatActivity() {
             .setIcon(android.R.drawable.ic_dialog_info)
             .show()
     }
-    
+
+    // Agregar en MainActivity.kt
+    private fun setupGameFeatures() {
+        // Botón para agregar juego
+        val btnAddGame = findViewById<Button>(R.id.btnAddGame)
+        btnAddGame.setOnClickListener {
+            startActivity(Intent(this, AddGameActivity::class.java))
+        }
+
+        // Botón para ver juegos
+        val btnViewGames = findViewById<Button>(R.id.btnViewGames)
+        btnViewGames.setOnClickListener {
+            startActivity(Intent(this, GamesListActivity::class.java))
+        }
+    }
+
+
+
     override fun onStart() {
         super.onStart()
         // Verificar autenticación cada vez que la actividad se vuelve visible
@@ -196,3 +214,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+annotation class GamesListActivity
