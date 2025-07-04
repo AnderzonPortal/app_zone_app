@@ -2,7 +2,7 @@
 <h3 align="center">Gestor de videojuegos con Firebase Authentication y Realtime Database</h3>
 
 <p align="center">
-  <img src="./imagenes/galeria1.jpg" alt="Vista previa" width="70%">
+  <img src="app/src/imagenes/galeria1.jpg" alt="Vista previa" width="70%">
 </p>
 
 ---
